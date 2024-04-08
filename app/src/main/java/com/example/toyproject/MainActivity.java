@@ -12,9 +12,9 @@ import android.widget.Spinner;
 public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<CharSequence> adUniv, adMaj, adGrd;
     private Spinner univSpin, majSpin, grdSpin;
-    private String choice_univ = "";
-    private String choice_maj = "";
-    private String choice_grd = "";
+//    private String choice_univ = "";
+//    private String choice_maj = "";
+//    private String choice_grd = "";
     private ImageButton imgBtnLogo;
 
     @Override
