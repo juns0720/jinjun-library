@@ -32,12 +32,7 @@ public class MainActivity extends AppCompatActivity {
         univSpin.setAdapter(adUniv);
 
         //로고 클릭시 초기값 지정//
-        imgBtnLogo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                univSpin.setSelection(0);
-            }
-        });
+        imgBtnLogo.setOnClickListener(v -> univSpin.setSelection(0));
 
         //학교 선택시 학과 어댑터 저장
         univSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -74,8 +69,8 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                     });
-                } else if (Objects.equals(adUniv.getItem(position), "메사추세츠 공과대학교")) {
-//                    choice_univ = "메사추세츠 공과대학교";
+                } else if (Objects.equals(adUniv.getItem(position), "고려대학교")) {
+//                    choice_univ = "고려대학교";
                     initSpinner(majSpin, adMaj, R.array.spinner_univercity_massachusetts);
 
                     majSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
