@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<CharSequence> adUniv, adMaj, adGrd;
     private Spinner univSpin, majSpin, grdSpin;
@@ -42,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                if(adUniv.getItem(position).equals("성결대학교")){
+                if(Objects.equals(adUniv.getItem(position), "성결대학교")){
 //                    choice_univ = "성결대학교";
                     initSpinner(majSpin, adMaj,R.array.spinner_univercity_sungkyul);
                     majSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
 
-                } else if (adUniv.getItem(position).equals("서울대학교")) {
+                } else if (Objects.equals(adUniv.getItem(position), "서울대학교")) {
 //                    choice_univ = "서울대학교";
                     initSpinner(majSpin, adMaj, R.array.spinner_univercity_seoul);
 
@@ -72,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                     });
-                } else if (adUniv.getItem(position).equals("메사추세츠 공과대학교")) {
+                } else if (Objects.equals(adUniv.getItem(position), "메사추세츠 공과대학교")) {
 //                    choice_univ = "메사추세츠 공과대학교";
                     initSpinner(majSpin, adMaj, R.array.spinner_univercity_massachusetts);
 
