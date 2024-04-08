@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">toyProject</string>
+    <string-array name="spinner_univercity" >
+        <item>성결대학교 </item>
+        <item>서울대학교</item>
+        <item>메사추세츠</item>
+    </string-array>
+
+    <string-array name="spinner_univercity_sungkyul">
+        <item>컴퓨터공학과</item>
+        <item>미소과</item>
+    </string-array>
+
+    <string-array name="spinner_univercity_seoul">
+        <item>컴퓨터공학과</item>
+        <item>서울우유</item>
+    </string-array>
+
+    <string-array name="spinner_univercity_massachusetts">
+        <item>사과</item>
+        <item>메사추세추석</item>
+    </string-array>
+
+    <string-array name="spinner_grade">
+        <item>1학년</item>
+        <item>2학년</item>
+        <item>3학년</item>
+        <item>4학년</item>
+    </string-array>
+
 </resources>
