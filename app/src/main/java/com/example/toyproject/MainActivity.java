@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
                 if(adUniv.getItem(position).equals("성결대학교")){
-                    choice_univ = "성결대학교";
+//                    choice_univ = "성결대학교";
                     initSpinner(majSpin, adMaj,R.array.spinner_univercity_sungkyul);
                     majSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                     });
 
                 } else if (adUniv.getItem(position).equals("서울대학교")) {
-                    choice_univ = "서울대학교";
+//                    choice_univ = "서울대학교";
                     initSpinner(majSpin, adMaj, R.array.spinner_univercity_seoul);
 
                     majSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
                 } else if (adUniv.getItem(position).equals("메사추세츠 공과대학교")) {
-                    choice_univ = "메사추세츠 공과대학교";
+//                    choice_univ = "메사추세츠 공과대학교";
                     initSpinner(majSpin, adMaj, R.array.spinner_univercity_massachusetts);
 
                     majSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
