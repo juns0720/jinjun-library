@@ -6,17 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageButton
-        android:id="@+id/ib_up"
-        android:layout_width="60sp"
-        android:layout_height="60sp"
-        android:src="@drawable/ic_uparrow"
-        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="10sp"
-        android:layout_marginRight="10sp" />
 
+    <LinearLayout
+        android:id="@+id/topView"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#E3E3E3"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:text="@string/name"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation_view"
@@ -38,13 +47,7 @@
         android:layout_height="0dp"
         android:id="@+id/main_container"
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation_view"
-        app:layout_constraintEnd_toEndOf="@id/bottom_navigation_view"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </FrameLayout>
+        app:layout_constraintTop_toBottomOf="@id/topView"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
