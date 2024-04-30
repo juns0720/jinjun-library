@@ -1,24 +1,20 @@
 package com.example.toyproject;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
-import androidx.annotation.Nullable;
-
 import java.util.Objects;
 
 
-public class CategorySpinner{
+public class MainCategorySpinner {
     private Context context;
     private ArrayAdapter<CharSequence> adUniv, adGrd, adMaj;
     private Spinner univSpin, majSpin, grdSpin;
 
-    CategorySpinner(Context context, ArrayAdapter<CharSequence> adUniv, Spinner univSpin, Spinner majSpin,Spinner grdSpin){
+    MainCategorySpinner(Context context, ArrayAdapter<CharSequence> adUniv, Spinner univSpin, Spinner majSpin, Spinner grdSpin){
         this.context = context;
         this.adUniv = adUniv;
         this.univSpin = univSpin;

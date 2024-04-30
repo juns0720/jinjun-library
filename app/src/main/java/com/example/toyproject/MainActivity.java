@@ -1,43 +1,72 @@
 package com.example.toyproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.Spinner;
 
-import java.util.Objects;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity {
-    private ArrayAdapter<CharSequence> adUniv, adMaj, adGrd;
+public class MainActivity extends AppCompatActivity{
+    private ArrayAdapter<CharSequence> adUniv;
     private Spinner univSpin, majSpin, grdSpin;
-    private ImageButton imgBtnLogo;
-    private CategorySpinner categorySpinner;
+    private MainCategorySpinner categorySpinner;
+    private MainPostAdapter postAdapter;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.main_display);
+
+        String[] titles = new String[50];
+        String[] prices = new String[50];
+        for(int i = 0; i < 50; i++){
+            titles[i] = "제목: "+ i + "번 째 책 팝니다.";
+            prices[i] = "가격: " + i + "원";
+        }
         univSpin = findViewById(R.id.university);
         majSpin = findViewById(R.id.major);
         grdSpin = findViewById(R.id.grade);
-        imgBtnLogo = findViewById(R.id.logoImageButton);
+
+        RecyclerView recyclerView = findViewById(R.id.rview);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        postAdapter = new MainPostAdapter(this, titles, prices);
+        recyclerView.setAdapter(postAdapter);
 
         adUniv = ArrayAdapter.createFromResource(this, R.array.spinner_univercity, android.R.layout.simple_spinner_dropdown_item);
         adUniv.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         univSpin.setAdapter(adUniv);
 
-        categorySpinner = new CategorySpinner(this, adUniv, univSpin, majSpin, grdSpin);
+        categorySpinner = new MainCategorySpinner(this, adUniv, univSpin, majSpin, grdSpin);
         categorySpinner.setSpinner();
 
-        //로고 클릭시 초기값 지정//
-        imgBtnLogo.setOnClickListener(v -> univSpin.setSelection(0));
+        bottomNavigationView = findViewById(R.id.bottom_navigation_view);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if(itemId == R.id.fragment_chat){
+                Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
+                startActivity(intent);
+            }
+            else if(itemId == R.id.fragment_myinfo){
 
+            }
+            else if(itemId == R.id.fragment_search){
 
+            }
+            else if(itemId == R.id.fragment_write){
+
+            }
+            return true;
+        });
     }
+
+
 
 
 

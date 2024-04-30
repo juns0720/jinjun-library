@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/fragment_write"
+        android:title="글쓰기"
+        android:icon="@drawable/ic_write"/>
+    <item
+        android:id="@+id/fragment_chat"
+        android:title="채팅"
+        android:icon="@drawable/ic_chat"/>
+    <item
+        android:id="@+id/fragment_search"
+        android:title="검색"
+        android:icon="@drawable/ic_search"/>
+    <item
+        android:id="@+id/fragment_myinfo"
+        android:title="내 정보"
+        android:icon="@drawable/ic_user"/>
+
+</menu>

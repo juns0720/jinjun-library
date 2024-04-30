@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">toyProject</string>
-    <string-array name="spinner_univercity" >
+    <string name="name">진준문고</string>
+    <string-array name="spinner_univercity">
         <item>성결대학교 </item>
         <item>서울대학교</item>
         <item>고려대학교</item>
