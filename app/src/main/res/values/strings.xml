@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Book Market</string>
+    <string name="button1">X</string>
+    <string name="imageButton">사진 추가 버튼</string>
+    <string name="editTextTitle">제목</string>
+    <string name="textView1">거래 방식</string>
+    <string name="radioButton1">판매</string>
+    <string name="radioButton2">나눔/기부</string>
+    <string name="editTextPrice">가격</string>
+    <string name="textView2">내용</string>
+    <string name="editTextDetail">내용을 입력하세요.</string>
+    <string name="button2">작성</string>
 </resources>
