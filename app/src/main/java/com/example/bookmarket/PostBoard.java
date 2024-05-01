@@ -7,11 +7,14 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResult;
@@ -37,10 +40,23 @@ public class PostBoard extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_post_board);
         Button b = (Button) findViewById(R.id.button1);
+        Spinner spinner = (Spinner) findViewById(R.id.spinner1);
         ImageButton img = (ImageButton) findViewById(R.id.imageButton);
         RadioButton r1 = (RadioButton) findViewById(R.id.radioButton1);
         RadioButton r2 = (RadioButton) findViewById(R.id.radioButton2);
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                this, R.array.school_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+            }
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +98,7 @@ public class PostBoard extends AppCompatActivity {
                     }
                 }
             });
+
 
 
 }

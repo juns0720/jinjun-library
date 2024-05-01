@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="spinner1">학교</string>
+    <string-array name="school_array">
+        <item>학교</item>
+        <item>성결대학교</item>
+        <item>안양대학교</item>
+    </string-array>
+    <string-array name="major_array">
+        <item>학과</item>
+        <item>컴퓨터공학과</item>
+        <item>미디어소프트웨어학과</item>
+    </string-array>
+    <string-array name="grade_array">
+        <item>학년</item>
+        <item>1학년</item>
+        <item>2학년</item>
+        <item>3학년</item>
+        <item>4학년</item>
+    </string-array>
+</resources>
