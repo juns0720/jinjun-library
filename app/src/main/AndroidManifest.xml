@@ -13,7 +13,7 @@
         android:theme="@style/Theme.ToyProject"
         tools:targetApi="31">
         <activity
-            android:name=".boardDetailed"
+            android:name=".PostActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
