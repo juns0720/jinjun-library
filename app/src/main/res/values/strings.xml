@@ -31,5 +31,7 @@
         <item>3학년</item>
         <item>4학년</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

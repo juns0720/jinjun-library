@@ -10,13 +10,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-public class MainPostAdapter extends RecyclerView.Adapter<MainPostAdapter.ViewHolder> {
+public class PostListAdapter extends RecyclerView.Adapter<PostListAdapter.ViewHolder> {
     private String[] titles;
     private String[] prices;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
-    MainPostAdapter(Context context, String[] titles, String[] prices){
+    PostListAdapter(Context context, String[] titles, String[] prices){
         this.mInflater = LayoutInflater.from(context);
         this.titles = titles;
         this.prices = prices;
@@ -31,7 +31,7 @@ public class MainPostAdapter extends RecyclerView.Adapter<MainPostAdapter.ViewHo
 
 
     @Override
-    public void onBindViewHolder(@NonNull MainPostAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PostListAdapter.ViewHolder holder, int position) {
         holder.title.setText(titles[position]);
         holder.price.setText(prices[position]);
     }

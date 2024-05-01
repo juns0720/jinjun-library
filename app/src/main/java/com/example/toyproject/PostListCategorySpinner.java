@@ -9,12 +9,12 @@ import android.widget.Spinner;
 import java.util.Objects;
 
 
-public class MainCategorySpinner {
+public class PostListCategorySpinner {
     private Context context;
     private ArrayAdapter<CharSequence> adUniv, adGrd, adMaj;
     private Spinner univSpin, majSpin, grdSpin;
 
-    MainCategorySpinner(Context context, ArrayAdapter<CharSequence> adUniv, Spinner univSpin, Spinner majSpin, Spinner grdSpin){
+    PostListCategorySpinner(Context context, ArrayAdapter<CharSequence> adUniv, Spinner univSpin, Spinner majSpin, Spinner grdSpin){
         this.context = context;
         this.adUniv = adUniv;
         this.univSpin = univSpin;
