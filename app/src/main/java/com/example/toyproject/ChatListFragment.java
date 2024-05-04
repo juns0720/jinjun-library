@@ -2,7 +2,6 @@ package com.example.toyproject;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 
-public class ChatListActivity extends Fragment {
+public class ChatListFragment extends Fragment {
     Context mContext;
     ImageView chatIconImage;
 
@@ -28,7 +27,7 @@ public class ChatListActivity extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.chatlist_activity, container, false);
+        View view = inflater.inflate(R.layout.chatlist_fragment, container, false);
         mContext = getActivity();
         chatIconImage = view.findViewById(R.id.testImage);
 

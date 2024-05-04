@@ -1,69 +1,62 @@
 package com.example.toyproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity{
+public class MainFragment extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_activity);
+        setContentView(R.layout.main_fragment);
+        setDefaultFragment(new PostListFragment());
 
 
         bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
-            if(itemId == R.id.fragment_chat){
+            if (itemId == R.id.fragment_chat) {
 
                 FragmentManager manager = getSupportFragmentManager();
                 FragmentTransaction ft = manager.beginTransaction();
 
-                ft.replace(R.id.frame_container, new ChatListActivity(), "ChatList");
+                ft.replace(R.id.frame_container, new ChatListFragment(), "ChatList");
                 ft.commitAllowingStateLoss();
-            }
-            else if(itemId == R.id.fragment_myinfo){
+            } else if (itemId == R.id.fragment_myinfo) {
                 FragmentManager manager = getSupportFragmentManager();
                 FragmentTransaction ft = manager.beginTransaction();
 
-                ft.replace(R.id.frame_container, new UserInfoActivity(), "UserInfo");
+                ft.replace(R.id.frame_container, new UserInfoFragment(), "UserInfo");
                 ft.commitAllowingStateLoss();
-            }
-            else if(itemId == R.id.fragment_search){
+            } else if (itemId == R.id.fragment_search) {
                 FragmentManager manager = getSupportFragmentManager();
                 FragmentTransaction ft = manager.beginTransaction();
 
-                ft.replace(R.id.frame_container, new SearchActivity(), "Search");
+                ft.replace(R.id.frame_container, new SearchFragment(), "Search");
                 ft.commitAllowingStateLoss();
-            }
-            else if(itemId == R.id.fragment_home){
+            } else if (itemId == R.id.fragment_home) {
                 FragmentManager manager = getSupportFragmentManager();
                 FragmentTransaction ft = manager.beginTransaction();
 
-                ft.replace(R.id.frame_container, new PostListActivity(), "PostList");
+                ft.replace(R.id.frame_container, new PostListFragment(), "PostList");
                 ft.commitAllowingStateLoss();
             }
             return true;
         });
     }
 
+    public void setDefaultFragment(Fragment FirstFragment) {
 
-
-
-
-
-
-
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.add(R.id.frame_container, FirstFragment);
+        ft.commit();
+    }
 }

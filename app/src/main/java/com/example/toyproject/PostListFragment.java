@@ -14,7 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 
-public class PostListActivity extends Fragment {
+public class PostListFragment extends Fragment {
 
     private ArrayAdapter<CharSequence> adUniv;
     private Spinner univSpin, majSpin, grdSpin;
@@ -40,7 +40,7 @@ public class PostListActivity extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.postlist_activity, container, false);
+        View view = inflater.inflate(R.layout.postlist_fragment, container, false);
         mContext = getActivity();
         univSpin = view.findViewById(R.id.university);
         majSpin = view.findViewById(R.id.major);
