@@ -1,5 +1,6 @@
 package com.example.bookmarket;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -40,21 +41,38 @@ public class PostBoard extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_post_board);
         Button b = (Button) findViewById(R.id.button1);
-        Spinner spinner = (Spinner) findViewById(R.id.spinner1);
+        Spinner spinner1 = findViewById(R.id.spinner1);
+        Spinner spinner2 = findViewById(R.id.spinner2);
+        Spinner spinner3 = findViewById(R.id.spinner3);
         ImageButton img = (ImageButton) findViewById(R.id.imageButton);
         RadioButton r1 = (RadioButton) findViewById(R.id.radioButton1);
         RadioButton r2 = (RadioButton) findViewById(R.id.radioButton2);
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
+        imageView.setVisibility(View.INVISIBLE);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(
                 this, R.array.school_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner1.setAdapter(adapter1);
 
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
-            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(
+                this, R.array.major_array, android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner2.setAdapter(adapter2);
+
+        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(
+                this, R.array.grade_array, android.R.layout.simple_spinner_item);
+        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner3.setAdapter(adapter3);
+
+        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             }
-            public void onNothingSelected(AdapterView<?> arg0) {
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
             }
         });
 
@@ -81,19 +99,17 @@ public class PostBoard extends AppCompatActivity {
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 @Override
-                public void onActivityResult(ActivityResult o) {
-                    ActivityResult result = null;
-                    if(result.getResultCode() == RESULT_OK && result.getData() != null){
+                public void onActivityResult(ActivityResult result) {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Intent data = result.getData();
+                        if (data != null) {
+                            Uri selectedImageUri = data.getData();
 
-                        uri = result.getData().getData();
+                            // ImageView에 선택한 사진 설정
+                            imageView.setImageURI(selectedImageUri);
 
-                        try{
-                            Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                            imageView.setImageBitmap(bitmap);
-                        }catch (FileNotFoundException e){
-                            e.printStackTrace();
-                        }catch (IOException e){
-                            e.printStackTrace();
+                            // ImageView를 visible로 변경
+                            imageView.setVisibility(View.VISIBLE);
                         }
                     }
                 }
