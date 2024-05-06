@@ -10,4 +10,35 @@
     <string name="textView2">내용</string>
     <string name="editTextDetail">내용을 입력하세요.</string>
     <string name="button2">작성</string>
+
+    <string-array name="spinner_univercity">
+        <item>성결대학교 </item>
+        <item>서울대학교</item>
+        <item>고려대학교</item>
+    </string-array>
+
+    <string-array name="spinner_univercity_sungkyul">
+        <item>성결과1</item>
+        <item>성결과2</item>
+        <item>성결과3</item>
+    </string-array>
+
+    <string-array name="spinner_univercity_seoul">
+        <item>서울과1</item>
+        <item>서울과2</item>
+        <item>서울과3</item>
+    </string-array>
+
+    <string-array name="spinner_univercity_massachusetts">
+        <item>고려과1</item>
+        <item>고려과2</item>
+        <item>고려과3</item>
+    </string-array>
+
+    <string-array name="spinner_grade">
+        <item>1학년</item>
+        <item>2학년</item>
+        <item>3학년</item>
+        <item>4학년</item>
+    </string-array>
 </resources>

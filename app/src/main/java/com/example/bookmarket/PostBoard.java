@@ -35,46 +35,63 @@ public class PostBoard extends AppCompatActivity {
     Uri uri;
     ImageView imageView;
     EditText eTextTitle, eTextPrice, eTextDetail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_post_board);
         Button b = (Button) findViewById(R.id.button1);
-        Spinner spinner1 = findViewById(R.id.spinner1);
-        Spinner spinner2 = findViewById(R.id.spinner2);
-        Spinner spinner3 = findViewById(R.id.spinner3);
         ImageButton img = (ImageButton) findViewById(R.id.imageButton);
         RadioButton r1 = (RadioButton) findViewById(R.id.radioButton1);
         RadioButton r2 = (RadioButton) findViewById(R.id.radioButton2);
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
         imageView.setVisibility(View.INVISIBLE);
+        // 첫 번째 스피너, 두 번째 스피너, 세 번째 스피너의 참조 가져오기
+        Spinner firstSpinner = (Spinner) findViewById(R.id.spinner_university);
+        Spinner secondSpinner = (Spinner) findViewById(R.id.spinner_department);
+        Spinner thirdSpinner = (Spinner) findViewById(R.id.spinner_grade);
 
+// 첫 번째 스피너의 어댑터 설정
+        firstSpinner.setAdapter(new ArrayAdapter<>(
+                PostBoard.this, android.R.layout.simple_spinner_item,
+                getResources().getStringArray(R.array.spinner_univercity)
+        ));
 
-        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(
-                this, R.array.school_array, android.R.layout.simple_spinner_item);
-        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner1.setAdapter(adapter1);
-
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(
-                this, R.array.major_array, android.R.layout.simple_spinner_item);
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner2.setAdapter(adapter2);
-
-        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(
-                this, R.array.grade_array, android.R.layout.simple_spinner_item);
-        adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner3.setAdapter(adapter3);
-
-        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        firstSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // 선택된 대학교에 따라 두 번째 스피너의 옵션 변경
+                if (position == 0) { // 성결대학교
+                    secondSpinner.setAdapter(new ArrayAdapter<>(
+                            PostBoard.this, android.R.layout.simple_spinner_item,
+                            getResources().getStringArray(R.array.spinner_univercity_sungkyul)
+                    ));
+                } else if (position == 1) { // 서울대학교
+                    secondSpinner.setAdapter(new ArrayAdapter<>(
+                            PostBoard.this, android.R.layout.simple_spinner_item,
+                            getResources().getStringArray(R.array.spinner_univercity_seoul)
+                    ));
+                } else if (position == 2) { // 고려대학교
+                    secondSpinner.setAdapter(new ArrayAdapter<>(
+                            PostBoard.this, android.R.layout.simple_spinner_item,
+                            getResources().getStringArray(R.array.spinner_univercity_massachusetts)
+                    ));
+                }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+                // 아무것도 선택되지 않은 경우 처리
             }
         });
+
+// 세 번째 스피너의 어댑터 설정
+        thirdSpinner.setAdapter(new ArrayAdapter<>(
+                PostBoard.this, android.R.layout.simple_spinner_item,
+                getResources().getStringArray(R.array.spinner_grade)
+        ));
+
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,9 +108,6 @@ public class PostBoard extends AppCompatActivity {
                 startActivityResult.launch(intent);
             }
         });
-
-
-
     }
     ActivityResultLauncher<Intent> startActivityResult = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
