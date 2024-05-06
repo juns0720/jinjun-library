@@ -27,15 +27,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-//        ImageView backImage = findViewById(R.id.back);
-//
-//
-//        backImage.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                finish();
-//            }
-//        });
+
 
 
 public class ChatActivity extends AppCompatActivity {
@@ -61,10 +53,19 @@ public class ChatActivity extends AppCompatActivity {
         rv = findViewById(R.id.chatRecycler);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(mAdapter);
-        chatroom = "data";
 
-        myRef = database.getReference();
+        ImageView backImage = findViewById(R.id.back);
+        backImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
+
+
+
+        myRef = database.getReference("message");
 
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
@@ -76,16 +77,16 @@ public class ChatActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) { }
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, String s) { }
 
             @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) { }
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) { }
 
             @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) { }
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, String s) { }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) { }
+            public void onCancelled(@NonNull DatabaseError databaseError) { }
         });
 
         send_iv.setOnClickListener(new View.OnClickListener() {

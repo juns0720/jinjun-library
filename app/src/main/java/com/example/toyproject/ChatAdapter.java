@@ -32,7 +32,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 //        if (mValues.get(position).getUserid().equals(toyproject.Localdb.get_dataS("userid"))) {
             holder.other_cl.setVisibility(View.GONE);
             holder.my_cl.setVisibility(View.VISIBLE);
-
+            holder.userid_tv.setText(vo.getUserid());
             holder.date_tv2.setText(vo.getCrt_dt());
             holder.content_tv2.setText(vo.getContent());
 //        }else

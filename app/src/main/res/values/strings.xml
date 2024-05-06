@@ -1,25 +1,25 @@
 <resources>
     <string name="app_name">toyProject</string>
     <string name="name">진준문고</string>
-    <string-array name="spinner_univercity">
+    <string-array name="spinner_university">
         <item>성결대학교 </item>
         <item>서울대학교</item>
         <item>고려대학교</item>
     </string-array>
 
-    <string-array name="spinner_univercity_sungkyul">
+    <string-array name="spinner_university_sungkyul">
         <item>성결과1</item>
         <item>성결과2</item>
         <item>성결과3</item>
     </string-array>
 
-    <string-array name="spinner_univercity_seoul">
+    <string-array name="spinner_university_seoul">
         <item>서울과1</item>
         <item>서울과2</item>
         <item>서울과3</item>
     </string-array>
 
-    <string-array name="spinner_univercity_massachusetts">
+    <string-array name="spinner_university_korea">
         <item>고려과1</item>
         <item>고려과2</item>
         <item>고려과3</item>

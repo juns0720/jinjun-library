@@ -18,7 +18,7 @@ public class PostListFragment extends Fragment {
 
     private ArrayAdapter<CharSequence> adUniv;
     private Spinner univSpin, majSpin, grdSpin;
-    private PostListCategorySpinner categorySpinner;
+    private CategorySpinner categorySpinner;
     private PostListAdapter postAdapter;
     private String[] titles;
     private String[] prices;
@@ -53,11 +53,11 @@ public class PostListFragment extends Fragment {
         postAdapter = new PostListAdapter(mContext, titles, prices);
         recyclerView.setAdapter(postAdapter);
 
-        adUniv = ArrayAdapter.createFromResource(mContext, R.array.spinner_univercity, android.R.layout.simple_spinner_dropdown_item);
+        adUniv = ArrayAdapter.createFromResource(mContext, R.array.spinner_university, android.R.layout.simple_spinner_dropdown_item);
         adUniv.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         univSpin.setAdapter(adUniv);
 
-        categorySpinner = new PostListCategorySpinner(mContext, adUniv, univSpin, majSpin, grdSpin);
+        categorySpinner = new CategorySpinner(mContext, adUniv, univSpin, majSpin, grdSpin);
         categorySpinner.setSpinner();
 
         return view;

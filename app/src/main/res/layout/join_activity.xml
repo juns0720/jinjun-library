@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".JoinActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/jinjunlogo2" />
+
+
+    <TextView
+        android:id="@+id/idView"
+        android:layout_width="41dp"
+        android:layout_height="17dp"
+        android:text="아이디"
+        app:layout_constraintBottom_toTopOf="@+id/editId"
+        app:layout_constraintStart_toStartOf="@+id/editId" />
+
+    <EditText
+        android:id="@+id/editId"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="220dp"
+        android:hint="ID를 입력해주세요."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/passwordView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="비밀번호"
+        app:layout_constraintBottom_toTopOf="@+id/editPw"
+        app:layout_constraintStart_toStartOf="@+id/editPw" />
+
+    <EditText
+        android:id="@+id/editPw"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:inputType="textPassword"
+        android:hint="Password를 입력해주세요."
+        app:layout_constraintStart_toStartOf="@+id/editId"
+        app:layout_constraintTop_toBottomOf="@+id/editId" />
+
+    <TextView
+        android:id="@+id/nameView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="별명"
+        app:layout_constraintBottom_toTopOf="@+id/editName"
+        app:layout_constraintStart_toStartOf="@+id/editName" />
+
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:hint="별명을 입력해주세요."
+        app:layout_constraintStart_toStartOf="@+id/editPw"
+        app:layout_constraintTop_toBottomOf="@+id/editPw" />
+
+    <TextView
+        android:id="@+id/univView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="소속 대학교"
+        app:layout_constraintBottom_toTopOf="@+id/univSpinner"
+        app:layout_constraintStart_toStartOf="@+id/univSpinner" />
+
+    <Spinner
+        android:id="@+id/univSpinner"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="@+id/editName"
+        app:layout_constraintTop_toBottomOf="@+id/editName" />
+
+    <TextView
+        android:id="@+id/majorView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="소속 학과"
+        app:layout_constraintBottom_toTopOf="@+id/majorSpinner"
+        app:layout_constraintStart_toStartOf="@+id/majorSpinner" />
+
+    <Spinner
+        android:id="@+id/majorSpinner"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:hint="학과를 입력해주세요."
+        app:layout_constraintStart_toStartOf="@+id/univSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/univSpinner" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/mainJoinBtn"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/login_button"
+        android:text="가입하기"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/majorSpinner" />
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,18 +8,18 @@ import android.widget.Spinner;
 
 import java.util.Objects;
 
+public class JoinCategorySpinner{
 
-public class PostListCategorySpinner {
     private Context context;
     private ArrayAdapter<CharSequence> adUniv, adGrd, adMaj;
-    private Spinner univSpin, majSpin, grdSpin;
+    private Spinner univSpin, majSpin;
 
-    PostListCategorySpinner(Context context, ArrayAdapter<CharSequence> adUniv, Spinner univSpin, Spinner majSpin, Spinner grdSpin){
+
+    JoinCategorySpinner(Context context, ArrayAdapter<CharSequence> adUniv, Spinner univSpin, Spinner majSpin){
         this.context = context;
         this.adUniv = adUniv;
         this.univSpin = univSpin;
         this.majSpin = majSpin;
-        this.grdSpin = grdSpin;
     }
 
     public void setSpinner(){
@@ -29,7 +29,7 @@ public class PostListCategorySpinner {
 
                 if(Objects.equals(adUniv.getItem(position), "성결대학교")){
 //                    choice_univ = "성결대학교";
-                    initSpinner(majSpin, adMaj,R.array.spinner_univercity_sungkyul);
+                    initSpinner(majSpin, adMaj,R.array.spinner_university_sungkyul);
                     majSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -44,7 +44,7 @@ public class PostListCategorySpinner {
 
                 } else if (Objects.equals(adUniv.getItem(position), "서울대학교")) {
 //                    choice_univ = "서울대학교";
-                    initSpinner(majSpin, adMaj, R.array.spinner_univercity_seoul);
+                    initSpinner(majSpin, adMaj, R.array.spinner_university_seoul);
 
                     majSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
@@ -59,7 +59,7 @@ public class PostListCategorySpinner {
                     });
                 } else if (Objects.equals(adUniv.getItem(position), "고려대학교")) {
 //                    choice_univ = "고려대학교";
-                    initSpinner(majSpin, adMaj, R.array.spinner_univercity_massachusetts);
+                    initSpinner(majSpin, adMaj, R.array.spinner_university_korea);
 
                     majSpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
@@ -75,7 +75,6 @@ public class PostListCategorySpinner {
 
                 }
 
-                initSpinner(grdSpin, adGrd, R.array.spinner_grade);
             }
 
             @Override
@@ -91,5 +90,4 @@ public class PostListCategorySpinner {
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(arrayAdapter);
     }
-
 }

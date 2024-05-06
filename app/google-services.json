@@ -1,13 +1,14 @@
 {
   "project_info": {
     "project_number": "239109315660",
+    "firebase_url": "https://jinjun-library-default-rtdb.firebaseio.com",
     "project_id": "jinjun-library",
     "storage_bucket": "jinjun-library.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:239109315660:android:7d16320957448b799b68e9",
+        "mobilesdk_app_id": "1:239109315660:android:fbc61c7e16d61af99b68e9",
         "android_client_info": {
           "package_name": "com.example.toyproject"
         }
