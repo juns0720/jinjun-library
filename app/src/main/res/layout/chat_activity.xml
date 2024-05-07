@@ -10,7 +10,7 @@
         android:id="@+id/chatTitleView"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#80D5FC5C">
+        android:background="#D5FC5C">
 
         <ImageView
             android:id="@+id/back"

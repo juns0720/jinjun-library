@@ -47,8 +47,8 @@
         android:layout_width="310dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:inputType="textPassword"
         android:hint="Password를 입력해주세요."
+        android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="@+id/editId"
         app:layout_constraintTop_toBottomOf="@+id/editId" />
 
@@ -109,15 +109,11 @@
         android:layout_marginTop="50dp"
         android:background="@drawable/login_button"
         android:text="가입하기"
+        android:textColor="@color/black"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/majorSpinner" />
-
-
-
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

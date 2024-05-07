@@ -24,7 +24,8 @@
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:hint="Username"
+        android:hint="아이디"
+        android:minHeight="48sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -33,34 +34,38 @@
         android:id="@+id/editText2"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:hint="Password"
+        android:layout_marginTop="10dp"
+        android:hint="비밀번호"
         android:inputType="textPassword"
+        android:minHeight="48sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/mainLoginBtn"
-        android:layout_width="200dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="50dp"
-        android:text="로그인"
+        android:layout_width="280dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/login_button"
+        android:text="로그인"
+        android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/mainJoinBtn"
-        android:layout_width="200dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="30dp"
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:minHeight="48dp"
         android:text="회원가입"
-        android:background="@drawable/login_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainLoginBtn" />
+        android:textColor="#787878"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@id/mainLoginBtn"
+        app:layout_constraintTop_toBottomOf="@id/mainLoginBtn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
