@@ -4,5 +4,6 @@
     <string name="pr">가격</string>
     <string name="chNick">• 닉네임 변경</string>
     <string name="chPw">• 비밀번호 변경</string>
+    <string name="logout">• 로그아웃</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
