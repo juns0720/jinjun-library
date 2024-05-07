@@ -19,7 +19,7 @@
             app:srcCompat="@drawable/back" />
 
         <TextView
-            android:id="@+id/appTitle"
+            android:id="@+id/chatUserId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="10dp"

@@ -8,14 +8,21 @@ import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.List;
 
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 
     private final List<ChatMsgVO> mValues;
 
-    public ChatAdapter(List<ChatMsgVO> items) {
+    String currentUserNickName;
+
+    public ChatAdapter(List<ChatMsgVO> items, String currentUserNickName) {
         mValues = items;
+        this.currentUserNickName = currentUserNickName;
     }
 
     @Override
@@ -28,22 +35,23 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
 
+
         ChatMsgVO vo = mValues.get(position);
-//        if (mValues.get(position).getUserid().equals(toyproject.Localdb.get_dataS("userid"))) {
+        if (mValues.get(position).getUserid().equals(currentUserNickName)) {
             holder.other_cl.setVisibility(View.GONE);
             holder.my_cl.setVisibility(View.VISIBLE);
             holder.userid_tv.setText(vo.getUserid());
             holder.date_tv2.setText(vo.getCrt_dt());
             holder.content_tv2.setText(vo.getContent());
-//        }else
-//        {
-//            holder.other_cl.setVisibility(View.VISIBLE);
-//            holder.my_cl.setVisibility(View.GONE);
-//
-//            holder.userid_tv.setText(vo.getUserid());
-//            holder.date_tv.setText(vo.getCrt_dt());
-//            holder.content_tv.setText(vo.getContent());
-//        }
+        }
+        else{
+            holder.other_cl.setVisibility(View.VISIBLE);
+            holder.my_cl.setVisibility(View.GONE);
+
+            holder.userid_tv.setText(vo.getUserid());
+            holder.date_tv.setText(vo.getCrt_dt());
+            holder.content_tv.setText(vo.getContent());
+        }
     }
 
     @Override
@@ -53,7 +61,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public ConstraintLayout my_cl, other_cl;
-        public TextView userid_tv, date_tv, content_tv, date_tv2, content_tv2;
+        public TextView userid_tv, date_tv, content_tv, date_tv2, content_tv2 ;
 
         public ViewHolder(View view) {
             super(view);

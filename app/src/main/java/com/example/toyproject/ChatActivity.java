@@ -16,11 +16,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -41,18 +47,45 @@ public class ChatActivity extends AppCompatActivity {
     List<ChatMsgVO> msgList = new ArrayList<>();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef;
+    FirebaseAuth mAuth;
+    FirebaseUser currentUser;
+    FirebaseFirestore mStore;
+    String userId;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chat_activity);
 
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+        mStore = FirebaseFirestore.getInstance();
+
+
         content_et = findViewById(R.id.content_et);
         send_iv = findViewById(R.id.send_iv);
-        mAdapter = new ChatAdapter(msgList);
         rv = findViewById(R.id.chatRecycler);
         rv.setLayoutManager(new LinearLayoutManager(this));
-        rv.setAdapter(mAdapter);
+
+
+        //비동기 방식으로 유저의 닉네임 받아서 어댑터 매개변수에 추가
+        mStore.collection(FirebaseID.user).document(currentUser.getUid()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document != null && document.exists()) {
+                        userId = document.getString(FirebaseID.nickname);
+                        mAdapter = new ChatAdapter(msgList,userId);
+                        rv.setAdapter(mAdapter);
+                    } else {
+                        Log.d(TAG, "No such document");
+                    }
+                } else {
+                    Log.d(TAG, "get failed with ", task.getException());
+                }
+            }
+        });
 
         ImageView backImage = findViewById(R.id.back);
         backImage.setOnClickListener(new View.OnClickListener() {
@@ -61,8 +94,6 @@ public class ChatActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
 
 
         myRef = database.getReference("message");
@@ -100,14 +131,18 @@ public class ChatActivity extends AppCompatActivity {
 
     private void sendMessage() {
         String message = content_et.getText().toString().trim();
+
         if (!message.isEmpty()) {
-            ChatMsgVO msgVO = new ChatMsgVO("userid", getCurrentDateTime(), message);
+            ChatMsgVO msgVO = new ChatMsgVO(userId, getCurrentDateTime(), message);
             myRef.push().setValue(msgVO);
             content_et.setText("");
+            Toast.makeText(this, userId+"님이 메세지를 입력했습니다.", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "메시지를 입력하세요.", Toast.LENGTH_SHORT).show();
         }
+
     }
+
 
     private String getCurrentDateTime() {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
