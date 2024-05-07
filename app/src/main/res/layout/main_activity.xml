@@ -61,10 +61,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:minHeight="48dp"
-        android:text="회원가입"
-        android:textColor="#787878"
+        android:text="계정 만들기"
+        android:textColor="#2Db400"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@id/mainLoginBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/mainLoginBtn" />
 
 
