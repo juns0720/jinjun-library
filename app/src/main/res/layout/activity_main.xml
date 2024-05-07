@@ -52,5 +52,12 @@
         app:layout_constraintTop_toBottomOf="@id/topView">
 
 
+        <EditText
+            android:id="@+id/editTextText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:text="Name" />
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
