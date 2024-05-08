@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "239109315660",
+    "firebase_url": "https://jinjun-library-default-rtdb.firebaseio.com",
+    "project_id": "jinjun-library",
+    "storage_bucket": "jinjun-library.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239109315660:android:fbc61c7e16d61af99b68e9",
+        "android_client_info": {
+          "package_name": "com.example.toyproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYJCq8iJasjvlXb24dOu2tIrWT8vzxZTY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChatListFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="hello_chatlist_fragment" />
+
+    <ImageView
+        android:id="@+id/testImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:paddingTop="20dp"
+        android:onClick="toChat"
+        app:srcCompat="@drawable/ic_chat"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="채팅방으로 넘어가는 버튼"
+        android:paddingTop="100dp"/>
+
+</FrameLayout>

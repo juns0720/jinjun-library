@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-public class UserInfoFragment extends Fragment {
+public class WriteFragment extends Fragment {
 
 
 
@@ -17,12 +17,15 @@ public class UserInfoFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
 
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.userinfo_fragment, container, false);
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.write_fragment, container, false);
     }
 }

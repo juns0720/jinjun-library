@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/logoImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/jinjunlogo2" />
+
+
+    <EditText
+        android:id="@+id/userId_et"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:hint="아이디"
+        android:minHeight="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoImg" />
+
+    <EditText
+        android:id="@+id/userPw_et"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="비밀번호"
+        android:inputType="textPassword"
+        android:minHeight="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userId_et" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/mainLoginBtn"
+        android:layout_width="280dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/login_button"
+        android:text="로그인"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userPw_et" />
+
+    <Button
+        android:id="@+id/mainJoinBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:minHeight="48dp"
+        android:text="계정 만들기"
+        android:textColor="#2Db400"
+        android:textSize="18sp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mainLoginBtn" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

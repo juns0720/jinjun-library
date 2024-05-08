@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/fragment_write"
+        android:id="@+id/fragment_home"
         android:title="홈"
-        android:icon="@drawable/ic_write"/>
+        android:icon="@drawable/ic_home"/>
+
     <item
         android:id="@+id/fragment_chat"
         android:title="채팅"
@@ -16,5 +17,6 @@
         android:id="@+id/fragment_myinfo"
         android:title="내 정보"
         android:icon="@drawable/ic_user"/>
+
 
 </menu>
