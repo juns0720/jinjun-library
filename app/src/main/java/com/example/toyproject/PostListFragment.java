@@ -1,6 +1,7 @@
 package com.example.toyproject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 
@@ -23,6 +25,7 @@ public class PostListFragment extends Fragment {
     private String[] titles;
     private String[] prices;
     private Context mContext;
+    private Button writeBtn;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,7 +48,15 @@ public class PostListFragment extends Fragment {
         univSpin = view.findViewById(R.id.university);
         majSpin = view.findViewById(R.id.major);
         grdSpin = view.findViewById(R.id.grade);
+        writeBtn = view.findViewById(R.id.writeBtn);
+        writeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, WriteActivity.class);
+                startActivity(intent);
 
+            }
+        });
 
 
         RecyclerView recyclerView = view.findViewById(R.id.rview);

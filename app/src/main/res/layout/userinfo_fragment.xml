@@ -3,12 +3,111 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".UserInfoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="hello_userinfo_fragment" />
+        android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/userInfo_iv_backArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_backarrow"/>
+        <LinearLayout
+            android:id="@+id/userInfo_ll_bar"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8sp"
+            android:background="#000000"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userInfo_iv_backArrow"/>
+
+        <ImageView
+            android:id="@+id/userInfo_iv_profile"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_user"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userInfo_ll_bar" />
+
+        <TextView
+            android:id="@+id/userInfo_tv_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="Nick"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@id/userInfo_iv_profile"
+            app:layout_constraintStart_toEndOf="@id/userInfo_iv_profile"
+            app:layout_constraintTop_toTopOf="@id/userInfo_iv_profile" />
+
+        <LinearLayout
+            android:id="@+id/userInfo_ll_bar2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8sp"
+            android:layout_marginEnd="20dp"
+            android:background="#000000"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userInfo_iv_profile" >
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/userInfo_tv_chNick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:minHeight="48dp"
+            android:text="@string/chNick"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/userInfo_ll_bar2"
+            app:layout_constraintTop_toBottomOf="@id/userInfo_ll_bar2" />
+
+        <TextView
+            android:id="@+id/userInfo_tv_chPw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="@string/chPw"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/userInfo_tv_chNick"
+            app:layout_constraintTop_toBottomOf="@id/userInfo_tv_chNick" />
+
+        <TextView
+            android:id="@+id/userinfo_tv_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48sp"
+            android:text="@string/logout"
+            android:textColor="#E91E63"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@id/userInfo_tv_chPw"
+            app:layout_constraintTop_toBottomOf="@id/userInfo_tv_chPw" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="3dp"
+            android:src="@drawable/ic_backarrow"
+            app:tint="#E91E63"
+            app:layout_constraintStart_toEndOf="@id/userinfo_tv_logout"
+            app:layout_constraintTop_toTopOf="@id/userinfo_tv_logout" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

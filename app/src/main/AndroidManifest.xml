@@ -34,6 +34,9 @@
         <activity
             android:name=".ChatActivity"
             android:exported="false"/>
+        <activity
+            android:name=".WriteActivity"
+            android:exported="false"/>
 
     </application>
 
