@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         app:itemIconSize="24dp"
-        app:itemIconTint="@android:color/holo_green_light"
+        app:itemIconTint="#FDD835"
         app:itemTextColor="@color/black"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
