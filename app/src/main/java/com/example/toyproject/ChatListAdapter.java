@@ -1,6 +1,7 @@
 package com.example.toyproject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +52,8 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ViewHo
             if (clickListener != null) {
                 clickListener.onItemClick(v, position);
             }
+            Intent intent = new Intent(context, ChatActivity.class);
+            context.startActivity(intent);
         });
     }
 

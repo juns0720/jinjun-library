@@ -1,5 +1,6 @@
 package com.example.toyproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -127,6 +128,11 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
+        initChatView();
+    }
+
+    private void initChatView() {
+
     }
 
     private void sendMessage() {
@@ -148,6 +154,8 @@ public class ChatActivity extends AppCompatActivity {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return df.format(new Date());
     }
+
+
 
 }
 
