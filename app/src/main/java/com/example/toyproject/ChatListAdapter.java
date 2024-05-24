@@ -11,17 +11,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ViewHolder> {
 
     private Context context;
-    private String[] data;
+    ArrayList<String> nameData,statusData;
     private ClickListener clickListener;
 
-    public ChatListAdapter(Context context, String[] data) {
+    public ChatListAdapter(Context context, ArrayList<String> nameData, ArrayList<String> statusData) {
         this.context = context;
-        this.data = data;
+        this.nameData = nameData;
+        this.statusData = statusData;
     }
 
     public void setClickListener(ClickListener listener) {
@@ -37,16 +39,17 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String item = data[position];
+        String name = nameData.get(position);
+        String status = statusData.get(position);
 
         // 프로필 사진 설정
         holder.profileImageView.setImageResource(R.drawable.profile_placeholder); // 임시 프로필 사진
 
         // 이름 설정
-        holder.nameTextView.setText(item);
+        holder.nameTextView.setText(name);
 
         // 상태 메시지 설정
-        holder.statusTextView.setText("안녕하세요. 저는 " + item + "입니다."); // 임시 상태 메시지
+        holder.statusTextView.setText(status); // 임시 상태 메시지
 
         holder.itemView.setOnClickListener(v -> {
             if (clickListener != null) {
@@ -59,11 +62,11 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return data.length;
+        return nameData.size();
     }
 
     public String getItem(int position) {
-        return data[position];
+        return nameData.get(position);
     }
 
     public void setClickListener(ChatListFragment chatListFragment) {

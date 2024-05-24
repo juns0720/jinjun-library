@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ChatListFragment">
 
-    <ImageView
-        android:id="@+id/testImage"
-        android:layout_width="80sp"
-        android:layout_height="40sp"
-        android:layout_marginBottom="60dp"
-        android:scaleX="-1"
-        android:src="@drawable/ic_chat"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:tint="#FFEB3B" />
-
     <LinearLayout
         android:id="@+id/cl_appTitleView"
         android:layout_width="match_parent"

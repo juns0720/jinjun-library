@@ -12,52 +12,75 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import org.checkerframework.checker.nullness.qual.NonNull;
+
+import java.util.ArrayList;
 
 public class ChatListFragment extends Fragment {
     Context mContext;
-    ImageView chatIconImage;
     ChatListAdapter adapter;
-
-
+    private FirebaseFirestore db;
+    ArrayList<String> nameData, statusData;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.chatlist_fragment, container, false);
+        db = FirebaseFirestore.getInstance();
         mContext = getActivity();
-        chatIconImage = view.findViewById(R.id.testImage);
+        nameData = new ArrayList<>();
+        statusData = new ArrayList<>();
 
-        String[] data = new String[100];
-        for(int i=1;i<=100;i++) {
-            data[i-1] = "friend #"+i;
-        }
         RecyclerView recyclerView = view.findViewById(R.id.chatListRView);
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-        adapter = new ChatListAdapter(mContext, data);
-
-        //리사이클러뷰 아이템 상호작용 로직
-
+        adapter = new ChatListAdapter(mContext, nameData, statusData);
         recyclerView.setAdapter(adapter);
 
-        chatIconImage.setOnClickListener(new View.OnClickListener() {
+        // 리사이클러뷰 아이템 상호작용 로직
+        adapter.setClickListener(new ChatListAdapter.ClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onItemClick(View view, int position) {
                 Intent intent = new Intent(mContext, ChatActivity.class);
                 startActivity(intent);
             }
         });
 
-        return view;
+        // Firestore에서 데이터 가져오기
+        getUsersFromFirestore();
 
+        return view;
     }
 
-
+    private void getUsersFromFirestore() {
+        db.collection("ChatUserList")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                Log.d("Firestore", document.getId() + " => " + document.getData());
+                                // 문서 데이터 처리
+                                nameData.add(document.getString("name"));
+                                statusData.add(document.getString("status"));
+                            }
+                            // 어댑터에 데이터가 변경되었음을 알림
+                            adapter.notifyDataSetChanged();
+                        } else {
+                            Log.w("Firestore", "Error getting documents.", task.getException());
+                        }
+                    }
+                });
+    }
 }
