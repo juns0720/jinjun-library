@@ -35,37 +35,31 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
 
-
-
-
-
-
-
-
-
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = et_userId.getText().toString().trim();
                 String password = et_userpw.getText().toString().trim();
-
-                mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(getApplicationContext(), "로그인 되었습니다!",Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(MainActivity.this, MainFragment.class);
-                            startActivity(intent);
+                if (email.isEmpty()){
+                    Toast.makeText(MainActivity.this, "아이디를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                } else if(password.isEmpty()){
+                    Toast.makeText(MainActivity.this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                } else {
+                    mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(getApplicationContext(), "로그인 되었습니다!", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(MainActivity.this, MainFragment.class);
+                                finish();
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(MainActivity.this, "아이디 혹은 비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                        else{
-                            Toast.makeText(MainActivity.this, "아이디 혹은 비밀번호를 다시 입력해주세요.", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-
-
+                    });
+                }
                 //로그인 성공 로직
-
             }
         });
 
@@ -76,18 +70,21 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
-
     @Override
     protected void onStart() {
         super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
 
-        FirebaseUser user = mAuth.getCurrentUser();
-        if ( user != null) {
-            Intent login_intent = new Intent(this, MainFragment.class);
-            startActivity(login_intent);
-            Toast.makeText(this, "자동 로그인 \n" + user.getEmail(), Toast.LENGTH_SHORT).show();
+    }
+
+    private void updateUI(FirebaseUser user){
+        if( user!= null){
+            Intent intent = new Intent(this,MainFragment.class);
+            startActivity(intent);
+            Toast.makeText(this,user.getEmail()+"님 환영합니다!",Toast.LENGTH_SHORT).show();
+            finish();
         }
     }
 
