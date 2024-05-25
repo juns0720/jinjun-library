@@ -51,7 +51,7 @@ public class PostActivity extends AppCompatActivity {
         photo5.setImageResource();
         */
         nickname.setText(getIntent().getStringExtra("writer"));
-        price.setText(getIntent().getStringExtra("price"));
+        price.setText(getIntent().getStringExtra("price")+"원");
         title.setText(getIntent().getStringExtra("title"));
         content.setText(getIntent().getStringExtra("content"));
 

@@ -44,7 +44,7 @@ public class PostListAdapter extends RecyclerView.Adapter<PostListAdapter.ViewHo
         String content = contents.get(position);
 
         holder.title.setText("제목: " + title);
-        holder.price.setText("가격: " + price);
+        holder.price.setText("가격: " + price + "원");
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
