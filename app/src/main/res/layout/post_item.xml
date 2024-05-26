@@ -99,10 +99,13 @@
                 android:id="@+id/post_iv_photo1"
                 android:layout_width="360sp"
                 android:layout_height="360sp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="56dp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.49"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="@drawable/bg_img"
+                />
 
             <ImageView
                 android:id="@+id/post_iv_photo2"
@@ -112,7 +115,8 @@
                 app:layout_constraintEnd_toStartOf="@+id/post_iv_photo3"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="@id/post_iv_photo1"
-                app:layout_constraintTop_toBottomOf="@+id/post_iv_photo1" />
+                app:layout_constraintTop_toBottomOf="@+id/post_iv_photo1"
+                android:background="@drawable/bg_img"/>
 
             <ImageView
                 android:id="@+id/post_iv_photo3"
@@ -121,7 +125,8 @@
                 app:layout_constraintEnd_toStartOf="@+id/post_iv_photo4"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/post_iv_photo2"
-                app:layout_constraintTop_toTopOf="@id/post_iv_photo2" />
+                app:layout_constraintTop_toTopOf="@id/post_iv_photo2"
+                android:background="@drawable/bg_img"/>
 
             <ImageView
                 android:id="@+id/post_iv_photo4"
@@ -130,7 +135,8 @@
                 app:layout_constraintEnd_toStartOf="@+id/post_iv_photo5"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/post_iv_photo3"
-                app:layout_constraintTop_toTopOf="@id/post_iv_photo2" />
+                app:layout_constraintTop_toTopOf="@id/post_iv_photo2"
+                android:background="@drawable/bg_img"/>
 
             <ImageView
                 android:id="@+id/post_iv_photo5"
@@ -139,7 +145,8 @@
                 app:layout_constraintEnd_toEndOf="@id/post_iv_photo1"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/post_iv_photo4"
-                app:layout_constraintTop_toTopOf="@id/post_iv_photo2" />
+                app:layout_constraintTop_toTopOf="@id/post_iv_photo2"
+                android:background="@drawable/bg_img"/>
 
             <TextView
                 android:id="@+id/post_tv_nickname"
@@ -149,7 +156,8 @@
                 android:layout_marginTop="30sp"
                 android:layout_marginEnd="20dp"
                 android:text="닉네임"
-                android:textSize="32sp"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/post_iv_photo5" />
@@ -158,7 +166,7 @@
                 android:id="@+id/post_tv_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
                 android:text="제목"
@@ -176,7 +184,7 @@
                 android:layout_marginTop="10sp"
                 android:layout_marginEnd="10dp"
                 android:text="본문"
-                android:textSize="20sp"
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/post_tv_title" />
