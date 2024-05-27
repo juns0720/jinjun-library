@@ -17,7 +17,7 @@
     <string name="logout">• 로그아웃</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="school">학교/학과</string>
-    <string name = "subname">우리 동네 중고 책</string>
+    <string name="subname">우리 동네 중고 책</string>
     <string-array name="spinner_university">
         <item>성결대학교 </item>
         <item>서울대학교</item>

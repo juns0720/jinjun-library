@@ -15,29 +15,35 @@
         android:theme="@style/Theme.ToyProject"
         tools:targetApi="31">
         <activity
+            android:name=".ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChangeNameActivity"
+            android:exported="false" />
+        <activity
             android:name=".PostActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN"/>
-            <category android:name="android.intent.category.LAUNCHER"/>
-        </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".JoinActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".MainFragment"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".ChatActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".WriteActivity"
-            android:exported="false"/>
-
+            android:exported="false" />
     </application>
 
 </manifest>
