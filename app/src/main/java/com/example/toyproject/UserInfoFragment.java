@@ -7,10 +7,14 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,10 +24,13 @@ import com.google.firebase.auth.FirebaseUser;
 public class UserInfoFragment extends Fragment {
     private Button logoutBtn;
     private FirebaseAuth auth;
+    private TextView nickname;
     private Activity activity;
 
     private Button changeNicknameButton;
     private Button changePasswordButton;
+    private String userNickname;
+
 
 
     @Override
@@ -36,6 +43,13 @@ public class UserInfoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.userinfo_fragment, container, false);
         activity = getActivity();
+        nickname = v.findViewById(R.id.userinfo_tv_nickname);
+        Bundle args = getArguments();
+        if (args != null) {
+            userNickname = args.getString("userNickname");
+        }
+        Log.d("userNickname", "userNickname: " + userNickname);
+        nickname.setText(userNickname);
 
         logoutBtn = v.findViewById(R.id.userinfo_tv_logout);
         changeNicknameButton = v.findViewById(R.id.userInfo_tv_chNick);
@@ -43,8 +57,8 @@ public class UserInfoFragment extends Fragment {
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseUser user = auth.getCurrentUser();
-                Toast.makeText(activity, user.getEmail() + "님이 로그아웃했습니다.", Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(activity, userNickname + "님이 로그아웃했습니다.", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(activity, MainActivity.class);
 
                 activity.finish();
