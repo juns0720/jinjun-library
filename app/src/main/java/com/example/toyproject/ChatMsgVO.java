@@ -5,9 +5,7 @@ public class ChatMsgVO {
     private String crt_dt;
     private String content;
 
-    public ChatMsgVO(){
 
-    }
     public ChatMsgVO(String userid, String crt_dt, String content) {
         this.userid = userid;
         this.crt_dt = crt_dt;

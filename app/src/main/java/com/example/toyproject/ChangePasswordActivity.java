@@ -65,18 +65,18 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
 
                     if (newPassword.equals(newPasswordCheck)) {
-                        // 현재 사용자의 이메일과 비밀번호를 사용하여 자격 증명을 만듭니다.
+                        // 현재 사용자의 이메일과 비밀번호를 가져옴
                         String email = user.getEmail();
-                        String currentPassword = currentPassword_et.getText().toString(); // 사용자로부터 현재 비밀번호를 입력받아야 합니다.
+                        String currentPassword = currentPassword_et.getText().toString(); // 사용자로부터 현재 비밀번호를 입력
 
                         AuthCredential credential = EmailAuthProvider.getCredential(email, currentPassword);
 
-                        // 자격 증명을 사용하여 다시 인증
+                        // 재인증
                         user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-                                    // 재인증 성공
+                                    // 재인증 성공 시
                                     user.updatePassword(newPassword).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
@@ -91,7 +91,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                                         }
                                     });
                                 } else {
-                                    // 재인증 실패
+                                    // 재인증 실패 시
                                     Log.d(TAG, "재인증 실패");
                                     Toast.makeText(context, "현재 암호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
                                 }
