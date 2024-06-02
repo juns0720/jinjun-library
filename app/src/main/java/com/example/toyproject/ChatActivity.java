@@ -128,9 +128,12 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
+        initChatView();
     }
 
+    private void initChatView() {
 
+    }
 
     private void sendMessage() {
         String message = content_et.getText().toString().trim();
