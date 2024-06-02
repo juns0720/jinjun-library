@@ -38,13 +38,14 @@
             android:layout_height="2px"
             android:layout_marginTop="10dp"
             android:background="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv1" />
 
         <TextView
             android:id="@+id/TextView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
             android:layout_weight="1"
             android:gravity="center"
@@ -57,22 +58,26 @@
 
         <EditText
             android:id="@+id/changeNickname"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:ems="10"
-            android:hint="Change Your Nickname"
+            android:hint="ㅤ"
             android:inputType="text"
             android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TextView1" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/changeNicknameButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="96dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/clickbutton"
+            android:minHeight="48dp"
             android:text="변경"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/changeNickname" />
