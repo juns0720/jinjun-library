@@ -62,6 +62,11 @@ public class ChatActivity extends AppCompatActivity {
         currentUser = mAuth.getCurrentUser();
         mStore = FirebaseFirestore.getInstance();
 
+        if (currentUser == null) {
+            Toast.makeText(this, "로그인이 필요합니다.", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
 
         content_et = findViewById(R.id.content_et);
         send_iv = findViewById(R.id.send_iv);
@@ -79,11 +84,7 @@ public class ChatActivity extends AppCompatActivity {
                         userId = document.getString(FirebaseID.nickname);
                         mAdapter = new ChatAdapter(msgList,userId);
                         rv.setAdapter(mAdapter);
-                    } else {
-                        Log.d(TAG, "No such document");
                     }
-                } else {
-                    Log.d(TAG, "get failed with ", task.getException());
                 }
             }
         });
@@ -128,12 +129,9 @@ public class ChatActivity extends AppCompatActivity {
             }
         });
 
-        initChatView();
     }
 
-    private void initChatView() {
 
-    }
 
     private void sendMessage() {
         String message = content_et.getText().toString().trim();

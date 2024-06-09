@@ -20,7 +20,7 @@
         android:id="@+id/idView"
         android:layout_width="41dp"
         android:layout_height="17dp"
-        android:text="아이디"
+        android:text="이메일"
         app:layout_constraintBottom_toTopOf="@+id/editId"
         app:layout_constraintStart_toStartOf="@+id/editId" />
 
@@ -31,7 +31,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="220dp"
-        android:hint="ID를 입력해주세요."
+        android:hint="Email을 입력해주세요."
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

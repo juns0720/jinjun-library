@@ -60,8 +60,8 @@ public class PostActivity extends AppCompatActivity {
         trade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,ChatActivity.class);
-                startActivity(intent);
+                    Intent intent = new Intent(context, ChatActivity.class);
+                    startActivity(intent);
             }
         });
 
